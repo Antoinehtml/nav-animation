@@ -8,19 +8,57 @@
 }
 
 body{
-  padding: 40px 30px;
-  height: 100vh;
   color: #fff;
   background-color: #000;
   font-family: 'Russo One', sans-serif;
-  font-size: 1rem;
-  line-height: 1.2;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-sizing: border-box;
+  cursor: none;
 }
+
+.hover-this{
+  transition: all 0.3s ease;
+}
+
+.hover-this:hover ~ .cursor{
+  transform: translate(-50%, -50%) scale(6);
+}
+
+.cursor{
+  pointer-events: none;
+  position: fixed;
+  padding: 0.5rem;
+  background-color: #c6e421;
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  transition: transform 0.3s ease;
+  z-index: 20;
+}
+
+span{
+  display: inline-block;
+  pointer-events: none;
+  transition: transform 0.1s linear;
+}
+
+ul.transition{
+  display: flex;
+  position: absolute;
+  z-index: 10;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+ul.transition li{
+  transform: scaleY(0);
+  background-color: #c6e421;
+  width: 20%;
+}
+
+/* NAV */
 
 header{
   position: relative;
@@ -35,7 +73,7 @@ header{
   border-radius: 50%;
   background-color: #c6e421;
   border: 0;
-  cursor: pointer;
+  cursor: unset;
   position: absolute;
   right: 0;
   top: -10px;
@@ -64,15 +102,6 @@ header{
   }
 }
 
-h1{
-  font-size: 10rem;
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-transform: uppercase;
-}
-
 .header_nav{
   background-color: #c6e421;
   position: fixed;
@@ -89,6 +118,7 @@ h1{
   justify-content: space-between;
   visibility: hidden;
   clip-path: circle(var(--radius) at calc(100% - 55px) 47px);
+  pointer-events: none;
 }
 
 .header_nav[data-active="true"]{
@@ -102,6 +132,7 @@ h1{
 
 .header_menu > .header_menu-item{
   font-size: 12vh;
+  margin-left: 40px;
 }
 
 .header_menu > .header_menu-item:not(:last-of-type){
@@ -109,15 +140,65 @@ h1{
 }
 
 .header_menu-item a{
-  letter-spacing: -4px;
   font-weight: 300;
   color: #000;
   text-decoration: none;
 }
 
+/* END NAV */
 
+/* MAIN */
 
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 40px 30px;
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Russo One', sans-serif;
+  font-size: 1rem;
+  line-height: 1.2;
+  overflow: hidden;
+}
 
+h1{
+  font-size: 10rem;
+  text-transform: uppercase;
+}
+
+.wrapper{
+  padding: 1em;
+}
+
+.left{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+a{
+  color: #fff;
+  font-size: 2rem;
+}
+
+/* END MAIN */
+
+/* PROJECTS */
+
+.projects{
+  display: flex;
+  margin: 40px;
+}
+
+.project{
+  width: 300px;
+  height: 400px;
+  background-color: #c6e421;
+  margin-right: 20px;
+}
 
 
 

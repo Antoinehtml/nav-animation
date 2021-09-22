@@ -1,7 +1,10 @@
 // lib and imports
+
 const express = require("express");
 const app = express();
-const manager = require("./controllers/manager")
+const manager = require("./controllers/manager");
+
+
 
 // app setup
 app.use(express.json())
@@ -14,6 +17,10 @@ app.get('/',(req, res) => {
   // callback
   res.render('home.ejs');
 });
+
+app.get('/projects', (req, res) => {
+  res.render('projects.ejs')
+})
 
 
 
